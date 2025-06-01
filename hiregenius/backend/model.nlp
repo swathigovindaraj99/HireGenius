@@ -1,0 +1,260 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "hello": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "are,how,you": {
+            "intent": "greetings.howAreYou",
+            "domain": "default"
+          },
+          "bye": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.hello": "default",
+          "greetings.howAreYou": "default",
+          "greetings.bye": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Hello",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hi",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "How are you?",
+            "intent": "greetings.howAreYou"
+          },
+          {
+            "domain": "default",
+            "utterance": "Bye",
+            "intent": "greetings.bye"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "hello": 1,
+              "hi": 1,
+              "how": 1,
+              "are": 1,
+              "you": 1,
+              "bye": 1
+            },
+            "intents": {
+              "greetings.hello": 1,
+              "greetings.howAreYou": 1,
+              "greetings.bye": 1
+            },
+            "intentFeatures": {
+              "greetings.hello": {
+                "hello": 1,
+                "hi": 1
+              },
+              "greetings.howAreYou": {
+                "how": 1,
+                "are": 1,
+                "you": 1
+              },
+              "greetings.bye": {
+                "bye": 1
+              }
+            },
+            "featuresToIntent": {
+              "hello": [
+                "greetings.hello"
+              ],
+              "hi": [
+                "greetings.hello"
+              ],
+              "how": [
+                "greetings.howAreYou"
+              ],
+              "are": [
+                "greetings.howAreYou"
+              ],
+              "you": [
+                "greetings.howAreYou"
+              ],
+              "bye": [
+                "greetings.bye"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "hello",
+                "hi",
+                "how",
+                "are",
+                "you",
+                "bye"
+              ],
+              "intents": [
+                "greetings.hello",
+                "greetings.howAreYou",
+                "greetings.bye"
+              ],
+              "perceptrons": [
+                [
+                  8.844919204711914,
+                  8.84489631652832,
+                  -1.7876484394073486,
+                  -1.7876484394073486,
+                  -1.7876484394073486,
+                  -5.197247505187988,
+                  5.352922489961574
+                ],
+                [
+                  -0.892486035823822,
+                  -0.8904833793640137,
+                  4.464374542236328,
+                  4.464374542236328,
+                  4.464374542236328,
+                  -0.896285891532898,
+                  0.8923345367471692
+                ],
+                [
+                  -2.5955967903137207,
+                  -2.5812740325927734,
+                  -0.8908281326293945,
+                  -0.8908281326293945,
+                  -0.8908281326293945,
+                  11.432600021362305,
+                  2.682095726398239
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "Hello"
+      ],
+      [
+        "en",
+        "Hi"
+      ],
+      [
+        "en",
+        "How are you?"
+      ],
+      [
+        "en",
+        "Bye"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greetings.hello": [
+          {
+            "answer": "Hello! How can I help you today?"
+          }
+        ],
+        "greetings.howAreYou": [
+          {
+            "answer": "I am doing great, thanks for asking!"
+          }
+        ],
+        "greetings.bye": [
+          {
+            "answer": "Goodbye! Have a great day!"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
