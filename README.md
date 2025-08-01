@@ -9,15 +9,11 @@ This project introduces an AI-powered platform that automates resume parsing, va
 - Setup Docker and VS Code
 
 ### Backend Setup:
-bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+-bash
+-cd backend
+-python -m venv venv
+-pip install -r requirements.txt
 ### Frontend Setup:
-bash
-cd frontend
-npm install
-npm start
+-bash
+-npm install
+-npm start
