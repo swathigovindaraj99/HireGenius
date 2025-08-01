@@ -10,10 +10,10 @@ This project introduces an AI-powered platform that automates resume parsing, va
 
 ### Backend Setup:
 - bash
--cd backend
--python -m venv venv
--pip install -r requirements.txt
+- cd backend
+- python -m venv venv
+- pip install -r requirements.txt
 ### Frontend Setup:
--bash
--npm install
--npm start
+- bash
+- npm install
+- npm start
